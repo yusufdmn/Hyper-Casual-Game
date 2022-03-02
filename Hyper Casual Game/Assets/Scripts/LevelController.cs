@@ -12,6 +12,7 @@ public class LevelController : MonoBehaviour
     int currentLevel;
 
     public GameObject startMenu, gameUI, gameOverMenu, finishMenu;
+    public GameObject howToPlayMenu;
 
     public Text scoreText, finishScoreText, currentLevelText, nextLevelText;
     public Text startGameMunuMoneyText, finishGameMenuMoneyText, gameOverMenuMoneyText;
@@ -35,7 +36,6 @@ public class LevelController : MonoBehaviour
         currentLevel = PlayerPrefs.GetInt("currentLevel");
 
 
-        Debug.Log(currentLevel);
         if (SceneManager.GetActiveScene().buildIndex != currentLevel)
         {
             SceneManager.LoadScene(currentLevel);
@@ -62,6 +62,31 @@ public class LevelController : MonoBehaviour
 
     public void StartLevel()
     {
+        if(currentLevel == 0)
+        {
+            howToPlayMenu.SetActive(true);
+            startMenu.SetActive(false);
+       //     Time.timeScale = 0;
+        }
+        else
+        {
+        maxDistance = gameLine.transform.position.z - CharacterControllerScript.Current.transform.position.z;
+
+        CharacterControllerScript.Current.ChangeSpeed(CharacterControllerScript.Current.runningSpeed);
+
+        startMenu.SetActive(false);
+        gameUI.SetActive(true);
+
+        CharacterControllerScript.Current.animator.SetBool("running", true);
+
+        isGameActive = true;
+        }
+    }
+
+    public void CloseTheHTPMenu()
+    {
+        howToPlayMenu.SetActive(false);
+       // Time.timeScale = 1;
         maxDistance = gameLine.transform.position.z - CharacterControllerScript.Current.transform.position.z;
 
         CharacterControllerScript.Current.ChangeSpeed(CharacterControllerScript.Current.runningSpeed);
@@ -73,6 +98,7 @@ public class LevelController : MonoBehaviour
 
         isGameActive = true;
     }
+
 
     public void RestartLevel()
     {
