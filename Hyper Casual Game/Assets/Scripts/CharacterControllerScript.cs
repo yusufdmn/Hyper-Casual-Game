@@ -37,7 +37,7 @@ public class CharacterControllerScript : MonoBehaviour
 
     void Update()
     {
-        if( LevelController.Current ==null || LevelController.Current.isGameActive == false)
+        if( LevelController.Current == null || LevelController.Current.isGameActive == false)
         {
             return;
         }
@@ -75,13 +75,16 @@ public class CharacterControllerScript : MonoBehaviour
                 DropCyclinder();
                 _bridgeTimer = 0.02f;
                 IncrementCylinderVolume(-0.02f);
+               
                 GameObject newBridgePiece = Instantiate(bridgePiecePrefab);
                 Vector3 direction = _bridgeSpawner.endReference.transform.position - _bridgeSpawner.startReference.transform.position;
                 float distance = direction.magnitude;
                 direction = direction.normalized;
                 newBridgePiece.transform.forward = direction;
+                
                 float characterDistance = transform.position.z - _bridgeSpawner.startReference.transform.position.z;
                 characterDistance = Mathf.Clamp(characterDistance, 0, distance);
+                
                 Vector3 newPiecePosition = _bridgeSpawner.startReference.transform.position + characterDistance * direction;
                 newPiecePosition.x = transform.position.x;
                 newBridgePiece.transform.position = newPiecePosition;
@@ -113,7 +116,7 @@ public class CharacterControllerScript : MonoBehaviour
         {
             cylinderAudioSource.PlayOneShot(cylinderGather , 0.1f);
             Destroy(other.gameObject);
-            IncrementCylinderVolume(0.1f);
+            IncrementCylinderVolume(0.13f);
         }
         else if(other.tag == "SpawnBridge")
         {

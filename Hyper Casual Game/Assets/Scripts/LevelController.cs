@@ -122,6 +122,8 @@ public class LevelController : MonoBehaviour
 
     public void FinishLevel()
     {
+        CharacterControllerScript.Current.animator.SetBool("finished", true);
+        CharacterControllerScript.Current.animator.SetBool("running", false);
         GiveMoneyToPlayer(score);
         gameMusicAudioSurce.Stop();
         gameMusicAudioSurce.PlayOneShot(victoryClip);

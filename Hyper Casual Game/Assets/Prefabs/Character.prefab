@@ -464,7 +464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   limitX: 3.95
-  xSpeed: 10
+  xSpeed: 7
   runningSpeed: 0.18
   ridingCylinderPrefab: {fileID: 3754661698871503893, guid: fdb72ec967696b54b9a28786cef11ef3,
     type: 3}
@@ -525,8 +525,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4516118337727813232}
-  m_LocalRotation: {x: 0.15769164, y: -0.23536773, z: 0.03873278, w: 0.9582459}
-  m_LocalPosition: {x: 4.5, y: 4.26, z: -5.7}
+  m_LocalRotation: {x: 0.17058277, y: -0.15688246, z: 0.02752146, w: 0.9723847}
+  m_LocalPosition: {x: 3.6, y: 4.6, z: -6.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1435585795375589075}
@@ -534,7 +534,7 @@ Transform:
   - {fileID: 112528972450143943}
   m_Father: {fileID: 4516118337272006445}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 18.69, y: -27.6, z: 0}
+  m_LocalEulerAnglesHint: {x: 19.9, y: -18.33, z: 0}
 --- !u!20 &4516118337727813234
 Camera:
   m_ObjectHideFlags: 0
